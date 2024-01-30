@@ -1,0 +1,77 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Raleway", sans-serif
+}
+
+body,
+html {
+    height: 100%;
+    line-height: 1.8;
+}
+
+
+/* Full height image header */
+.bgimg-1 {
+    background-position: center;
+    background-size: cover;
+    background-image: url("../images/slika.jpg");
+    min-height: 100%;
+  }
+  
+  .w3-bar .w3-button {
+    padding: 16px;
+  }
+
+  select {
+    padding: 12px;
+    margin: 10px;
+    width: 500px;
+
+}
+option {
+    font-size: 14px;
+    width: 500px;
+
+}
+
+.w3-col m6{
+  margin-right: 50px;
+}
+
+.abt{
+  width: 70%;
+  margin-left: 50px;
+  
+}
+
+.jj{
+  margin-left: 12px;;
+}
+
+.sub{
+    width: 70%;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    color:#fff!important;background-color:#000!important
+
+}
+
+.sub:hover{
+  color:#ffffff!important;background-color:#4b4747!important
+}
+
+.border{
+  border-radius: 15px;
+}
+
+.border-images{
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+
+}
+
