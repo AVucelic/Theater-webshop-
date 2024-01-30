@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Virtuoso's View</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script  type="module" class="u-script" type="text/javascript" src="./assets/js/app.js"></script>
+    <script class="u-script" type="text/javascript" src="./assets/js/script.js"></script>
+</head>
+
+<body>
+
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+        <div class="w3-bar w3-white w3-card" id="myNavbar">
+            <a href="#home" class="w3-bar-item w3-button w3-wide">Virtuoso's View</a>
+            <!-- Right-sided navbar links -->
+            <div class="w3-right w3-hide-small">
+                <a href="#about" class="w3-bar-item w3-button"><i class="fa fa-book"></i>ABOUT</a>
+                <a href="#plays" class="w3-bar-item w3-button"><i class="fa fa-user"></i> FEATURED PLAYS</a>
+                <a href="#shop" class="w3-bar-item w3-button"><i class="fa fa-shopping-cart"></i> SHOP</a>
+                <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+            </div>
+            <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+            <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
+                onclick="w3_open()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Sidebar on small screens when clicking the menu icon -->
+    <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large"
+        style="display:none" id="mySidebar">
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close
+            ×</a>
+        <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">about</a>
+        <a href="#plays" onclick="w3_close()" class="w3-bar-item w3-button">plays</a>
+        <a href="#shop" onclick="w3_close()" class="w3-bar-item w3-button">shop</a>
+        <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+    </nav>
+
+    <!-- Header with full-height image -->
+    <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+        <div class="w3-display-left w3-text-white" style="padding:48px">
+            <span class="w3-jumbo w3-hide-small">Virtuoso's View</span><br>
+            <span class="w3-xxlarge w3-hide-large w3-hide-medium">Start something that matters</span><br>
+            <span class="w3-large">Where drama becomes reality</span>
+            <p><a href="#about"
+                    class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn
+                    more</a></p>
+        </div>
+        <div class="w3-display-bottomleft w3-text-grey w3-large" style="padding:24px 48px">
+            <i class="fa fa-facebook-official w3-hover-opacity"></i>
+            <i class="fa fa-instagram w3-hover-opacity"></i>
+            <i class="fa fa-snapchat w3-hover-opacity"></i>
+            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+            <i class="fa fa-twitter w3-hover-opacity"></i>
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+        </div>
+    </header>
+
+
+    <!-- Promo Section - "We know design" -->
+    <div class="w3-container w3-light-grey" style="padding:128px 16px" id="about">
+        <div class="w3-row-padding">
+            <div class="w3-col m6">
+                <h3 class="abt">Virtuoso's View</h3>
+                <p class="abt">Welcome to Virtuoso's View, your premier destination for a captivating journey into the
+                    world of
+                    online theater ticketing. At Virtuoso's View, we believe that every performance is a masterpiece
+                    waiting to unfold, and we are dedicated to providing you with a seamless and enchanting
+                    ticket-buying experience.<br>Our Story:
+                    Embark on a theatrical adventure with Virtuoso's View, where passion for the performing arts meets
+                    the convenience of online ticketing. Born out of a love for the stage, our platform is a celebration
+                    of the creativity, talent, and magic that theater brings to our lives. Whether you're a seasoned
+                    theatergoer or a first-time attendee, Virtuoso's View is your gateway to a world of enthralling
+                    performances.</p>
+                <p class="abt"><a href="#features" class="w3-button w3-black"><i class="fa fa-th"></i> View Our
+                        features</a></p>
+            </div>
+            <div class="w3-col m6">
+                <img class="w3-image w3-round-large" src="./assets/images/sl.jpg" alt="Buildings" width="700"
+                    height="394">
+            </div>
+        </div>
+    </div>
+
+    <!-- features Section -->
+    <div class="w3-container" style="padding:128px 16px" id="features">
+        <h3 class="w3-center">ABOUT THE COMPANY</h3>
+        <p class="w3-center w3-large">Key features of our company</p>
+        <div class="w3-row-padding w3-center" style="margin-top:64px">
+            <div class="w3-quarter">
+                <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
+                <p class="w3-large">Fast</p>
+                <p>With just few click on your device you can aquire the best tickets for your desired play.</p>
+            </div>
+            <div class="w3-quarter">
+                <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
+                <p class="w3-large">Reliable</p>
+                <p>Our website constantly updates available seats so you can pick the best ones.</p>
+            </div>
+            <div class="w3-quarter">
+                <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
+                <p class="w3-large">Discounts</p>
+                <p>Our passionate and loyal customers can get discounts for ticket of their choice.</p>
+            </div>
+            <div class="w3-quarter">
+                <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
+                <p class="w3-large">Support</p>
+                <p>Customer support which is online 24/7 and can be contacted anytime.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- plays Section -->
+    <div class="w3-container" style="padding:128px 16px" id="plays">
+        <h3 class="w3-center">The plays</h3>
+        <p class="w3-center w3-large">The most popular plays this month</p>
+        <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="w3-card border">
+                    <img src="./assets/images/hamlet.webp" alt="John" style="width:100%" class="border-images">
+                    <div class="w3-container">
+                        <h3>Hamlet</h3>
+                        <p class="w3-opacity">Tragedy, drama</p>
+                        <p>Hamlet, the best known and performed work of Shakespeare, has been intriguing and inspiring
+                            artists all around the world for more than four centuries. The story about the son who
+                            cannot come to terms with the sudden death of his father and to whom the ghost of his father
+                            reveals the murderer, does not cease to enchant the spectators of all ages.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="w3-card border">
+                    <img src="./assets/images/zrinski.jpg" alt="Jane" style="width:100%" class="border-images">
+                    <div class="w3-container">
+                        <h3>Nikola Šubić Zrinjski</h3>
+                        <p class="w3-opacity">Historic opera</p>
+                        <p>
+                            Nikola Šubić-Zrinjski is the commander of the Hungarian fortress of Sziget. The Turks
+                            attacking numbered around 100,000, while the city had about 2,500 defenders. Despite the
+                            death of the Turkish Suleiman the Magnificent, his subordinates still fought and siege drags
+                            on, and Nikola realizes there
+                            is no hope, he charges into an honorable death with a final
+                            assault, while fortress burns.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="w3-card border">
+                    <img src="./assets/images/rigoletto.jfif" alt="Mike" style="width:100%" class="border-images">
+                    <div class="w3-container">
+                        <h3>Rigoletto</h3>
+                        <p class="w3-opacity">Opera</p>
+                        <p>Rigoletto is an opera in three acts by Giuseppe Verdi. The Italian libretto was written by
+                            Francesco Maria Piave based on the 1832 play Le roi s'amuse by Victor Hugo. Despite serious
+                            initial problems with the Austrian censors who had control over northern Italian theatres at
+                            the time, the opera had a triumphant premiere at La Fenice in Venice on 11 March 1851.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="w3-card border">
+                    <img src="./assets/images/phanto.jpg" alt="Dan" style="width:100%" class="border-images">
+                    <div class="w3-container">
+                        <h3>The Phantom of the Opera</h3>
+                        <p class="w3-opacity">Opera</p>
+                        <p>The Phantom of the Opera is a musical with music by Andrew Lloyd Webber, lyrics by Charles
+                            Hart, additional lyrics by Richard Stilgoe and a libretto by Lloyd Webber and Stilgoe. It
+                            tells the tragic story of a
+                            beautiful soprano, Christine Daaé, who becomes the obsession of a mysterious, masked musical
+                            genius living in the subterranean labyrinth beneath the Paris Opéra House.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- shop Section -->
+    <div class="w3-container w3-light-grey" style="padding:128px 16px" id="shop">
+        <div class="w3-row-padding">
+            <div class="w3-col m6">
+                <h3 class="abt">Webshop</h3>
+                <form id="form-theatre">
+                    <select class="abt" id="genreType" name="genreType">
+                        <option value="selectGenre">Select Genre</option>
+                        <option value="drama">Drama</option>
+                        <option value="opera">Opera</option>
+                    </select> <br>
+                    <select class="abt" id="playType" name="playType">
+                        <option value="selectPlay">Select Play</option>
+                        <option value="hamlet">Hamlet</option>
+                        <option value="rigoletto">Rigoletto</option>
+                    </select><br>
+                    <select class="abt" id="dateType" name="dateType">
+                        <option value="selectDate">Select Date</option>
+                        <option value="wednesday">Wednesday</option>
+                        <option value="friday">Friday</option>
+                    </select>
+                    <button type="submit" class="sub" disabled>Submit</button>
+                    <button type="reset" class="sub">Reset</button>
+                </form>
+            </div>
+            <div class="w3-col m6">
+                <img id="imageTheatre" class="w3-image w3-round-large"
+                    src="./assets/images/selectGenre-selectPlay-selectDate.png" alt="Theatre Ticket" width="700"
+                    height="394">
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for full size images on click-->
+    <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+        <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright"
+            title="Close Modal Image">×</span>
+        <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+            <img id="img01" class="w3-image">
+            <p id="caption" class="w3-opacity w3-large"></p>
+        </div>
+    </div>
+
+
+    <!-- Contact Section -->
+    <div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
+        <h3 class="w3-center">CONTACT</h3>
+        <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
+        <div style="margin-top:48px">
+            <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Zagreb, Croatia</p>
+            <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +385 91134567</p>
+            <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: support@virtuoso.com</p>
+            <br>
+            <form action="#home" target="_blank">
+                <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
+                <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
+                <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
+                <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
+                <p>
+                    <button class="w3-button w3-black" type="submit">
+                        <i class="fa fa-paper-plane"></i> SEND MESSAGE
+                    </button>
+                </p>
+            </form>
+            <!-- Image of location/map -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-center w3-black w3-padding-64">
+        <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+        <div class="w3-xlarge w3-section">
+            <i class="fa fa-facebook-official w3-hover-opacity"></i>
+            <i class="fa fa-instagram w3-hover-opacity"></i>
+            <i class="fa fa-snapchat w3-hover-opacity"></i>
+            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+            <i class="fa fa-twitter w3-hover-opacity"></i>
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
