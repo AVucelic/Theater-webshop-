@@ -19,70 +19,63 @@
  * @link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
  */
 export class TeathreController {
-    /**
-     * Creates an object representing the theatre controller.
-     * 
-     * @param {type} model - The model the controller interacts with.
-     * @param {type} view - The view the controller interatcs with.
-     * 
+
+        /**
+     * Creastes an object to represent the ShopController 
+     * @param {*} model - model which the controller will interact with
+     * @param {*} view - view which the controller will interact with
      */
-    constructor(model, view) {
-        this.model = model;
-        this.view = view;
+        constructor(model, view) {
+            this.model = model;
+            this.view = view;
+    
+            let properties = this.model.getProperties();
+            this.view.renderSelects(properties);
+    
+            // 2. populate the first select
+            let firstSelectID = properties[0];
+            this.view.addOptions(firstSelectID, this.model.getOptions(firstSelectID));
+    
+            // 3. register one event handler for all select 'change' events
+            this.view.selects.forEach((select) => {
+                select.addEventListener('change', this.handleSelectChange);
+            });
+    
+            // 4. register form submit handler
+            this.view.fencingForm.addEventListener('submit', this.handleFormSubmit);
+        }
 
-        this.view.typeGenre.addEventListener("change", this.handleSelectChange);
-        this.view.typePlay.addEventListener("change", this.handleSelectChange);
-        this.view.typeDate.addEventListener("change", this.handleSelectChange);
-        this.view.theatreForm.addEventListener("submit", this.handleFormSubmit);
-        this.view.resetButton.addEventListener("click", this.handleImageReset);
-        this.view.resetButton.addEventListener("click", this.handleReset);
-    }
-
-    /**
-     * Handles "change" events fired by input fields.
-     * On change, the model is updated to reflect the new values and the view 
-     * is tasked with enabling/disabling the submit button.
-     * 
-     * @param {Event} event - the event to be processed 
-     */
-    handleSelectChange = (event) => {
-        let select = event.target;
-        this.model[select.name] = select.value;
-        console.log('Model:', this.model);
-        this.view.renderTicket(this.model.genreType, this.model.playType, this.model.dateType);
-        this.view.toggleSubmitButton();
-    }
-
-    /**
-     * Handles "submit" events fired by the form.
-     * On submit, the view renders the image, and then, it's reset to initial
-     * values. 
-     * 
-     * @param {Event} event - the event to be processed 
-     */
-    handleFormSubmit = (event) => {
-        //prevent the default action of a form (prevent submitting it)
-        event.preventDefault();
-        this.view.renderTicket(this.model.genreType, this.model.playType, this.model.dateType);
-        this.view.reset();
-
-    }
-
-    /**
-     * Resets the image to original one.
-     */
-    handleImageReset = () => {
-        this.view.resetImage();
-    }
-
-    /**
-     * Handles "reset" button events from the form.
-     * On reset, the values will be reseted to default ones.
-     * @param {*} event 
-     */
-    handleReset = (event) => {
-        event.preventDefault();
-        this.view.reset();
-    }
+        handleSelectChange = (event) => {
+            let select = event.target;
+    
+            //1. UPDATE MODEL ------------------------------------------------------
+            //Once the current model property is update, the other model properties
+            //that are defined after the current property, they need to be reset to 
+            //"undefined".
+            this.model[select.id] = select.value;
+            this.model.resetNextProperties(select.id);
+            console.log(this.model);
+    
+            //2. UPDATE VIEW (selectsDiv + animalDiv -------------------------------    
+    
+            //2.1 Update the selectsDiv - reset next selects & load new options into
+            // the next select only if the current selected option is different than 
+            // '-- Select the ... --', which index is 0
+            this.view.resetNextSiblings(select.id);
+            let nextSelect = select.nextElementSibling;
+            if (select.selectedIndex > 0 && nextSelect) {
+                this.view.addOptions(nextSelect.id, this.model.getOptions(nextSelect.id));
+            }
+    
+            //2.2. Update the animalDiv 
+            this.view.renderWeapon();
+        }
+    
+    
+        handleFormSubmit = (event) => {
+            //prevent the default action of a form (prevent submitting it)
+            event.preventDefault();
+            window.location.href = "order.html";
+        }
 }
 

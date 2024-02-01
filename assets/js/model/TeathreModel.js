@@ -1,50 +1,69 @@
+import { selectData } from "../store/selectData";
+
 export class TeathreModel {
+    static store = selectData;
 
     /**
      * Constructor with genreType, playType, and dateType attributes which have value of "undefined"
      */
     constructor() {
-        this._genreType = "undefined";
-        this._playType = "undefined";
-        this._dateType = "undefined";
+        this.genreType = "undefined";
+        this.playType = "undefined";
+        this.dateType = "undefined";
     }
 
     /**
-     * Setters for attributes
+     * Returns an array of this object's properties names.
+     * The returned array is used by View to dynamically render the selects. 
+     * For each Model property, a select is being rendered in View.
+     * 
+     * @returns {Array} array of property names (strings)
      */
-    set genreType(genreType) {
-        if (genreType === "selectGenre")
-            this._genreType = "undefined";
-        else
-            this._genreType = genreType;
+    getProperties() {
+        return Object.keys(this);
     }
 
-    set playType(playType) {
-        if (playType === "selectPlay")
-            this._playType = "undefined";
-        else
-            this._playType = playType;
-    }
-
-    set dateType(dateType) {
-        if (dateType === "selectDate")
-            this._dateType = "undefined";
-        else
-            this._dateType = dateType;
-    }
-
-    /**
-     * Getters for attributes
+        /**
+     * Gets the data from the external resource to be used as select options.
+     * 
+     * @param {String} selectID - select ID
+     * @returns {Array} array of select's options (strings)
      */
-    get genreType() {
-        return this._genreType;
-    }
-
-    get playType() {
-        return this._playType;
-    }
-
-    get dateType() {
-        return this._dateType;
-    }
+        getOptions(selectID) {
+            // 1. extract the data from the external resource (AnimalModel.store).
+            let options; // a JS object
+            switch (selectID) {
+                case 'genereType':
+                    options = Object.keys(ShopModel.store[selectID]);
+                    break;
+                case 'playType':
+                    if (this.weaponType !== "undefined") {
+                        options = Object.keys(ShopModel.store['genereType'][this.genreType]['playType']);
+                    }
+                    break;
+                case 'dateType':
+                    if (this.weaponType !== "undefined" && this.weaponSize !== "undefined") {
+                        options = Object.keys(ShopModel.store['genereType'][this.genreType]['dateType']);
+                    }
+                    break;
+            }
+    
+            // 2. return select options
+            return options;
+        }
+    
+        /**
+         * Resets this object's properties to "undefined". Not all properties are
+         * going to be reset, only those that are listed after the property defined 
+         * by this method parameter. 
+         * 
+         * @param {type} property - property from which the reset starts.
+         */
+        resetNextProperties(property) {
+            let properties = Object.keys(this);
+            let index = properties.indexOf(property);
+            while (++index < properties.length) {
+                this[properties[index]] = "undefined";
+            }
+        }
 }

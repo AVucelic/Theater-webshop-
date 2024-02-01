@@ -9,53 +9,68 @@
  */
 export class TeathreView {
     constructor() {
-        this.typeGenre = document.querySelector("#genreType");
-        this.typePlay = document.querySelector("#playType");
-        this.typeDate = document.querySelector("#dateType");
         this.theatreForm = document.querySelector("#form-theatre");
-        this.theatreImage = document.querySelector("#imageTheatre");
+        this.selectsDiv = document.querySelector("#div-selects");
+        this.teathreDiv = document.querySelector("#div-teathre");
         this.submitButton = document.querySelector("button[type=submit]");
         this.resetButton = document.querySelector("button[type=reset]");
+        this.selects = null;
     }
 
+
     /**
-     * Enables or disables the submit button depending on the input values.
-     * If all input is values are as expected, the button will be enabled.
+     * Renders the image based on the current selects' values.
+     * 
+     * @returns {undefined}
      */
-    toggleSubmitButton() {
-        if (this.typeGenre.value !== "selectGenre" && this.typePlay.value !== "selectPlay" && this.typeDate.value !== "selectDate") {
-            this.submitButton.disabled = false;
-        } else {
-            this.submitButton.disabled = true;
+    renderTeathre() {
+        let imgSrc = 'assets/media/';
+
+        this.selects.forEach((select) => {
+            imgSrc += `${select.value}-`;
+        });
+        imgSrc = imgSrc.slice(0, -1) + '.png'; //remove the last character '-'.
+
+        this.teathreDiv.src = imgSrc;
+    }
+
+
+    renderSelects(selectIDs) {
+        selectIDs.forEach((selectID) => {
+            let select = document.createElement('select');
+            select.id = selectID;
+            select.options.add(new Option(` -- Select a ${selectID} -- `, 'undefined'));
+            this.selectsDiv.appendChild(select);
+        });
+        this.selects = this.selectsDiv.querySelectorAll('select');
+    }
+
+        /**
+     * Resets all next selects, selects that are siblings to the one defined by
+     * this method parameter.
+     * 
+     * @param {type} selectID - the ID of the select which next siblings are going to be reset
+     */
+        resetNextSiblings(selectID) {
+            let select = this.selectsDiv.querySelector(`#${selectID}`);
+            let nextSelect = select.nextElementSibling;
+            while (nextSelect) {
+                nextSelect.length = 1;
+                nextSelect = nextSelect.nextElementSibling;
+            }
         }
-    }
 
-    /**
-     * Renders image with desired genre, play, and date.
-     * @param {*} genre 
-     * @param {*} play 
-     * @param {*} date 
+            /**
+     * Adds options to a select.
+     * 
+     * @param {String} selectID
+     * @param {Array} options - array of strings (option names)
      */
-    renderTicket(genre, play, date){
-        let imgSrc =  `assets/images/${genre}-${play}-${date}.png`;
-        this.theatreImage.src = imgSrc;
-    }
-
-    /**
-     * Resets image to the original image.
-     */
-    resetImage() {
-        this.theatreImage.src = "assets/images/selectGenre-selectPlay-selectDate.png";
-    }
-
-
-    /**
-     * Resets the input values and the submit button.
-     */
-    reset() {
-        this.typeGenre.value = "selectGenre";
-        this.typePlay.value = "selectPlay";
-        this.typeDate.value = "selectDate";
-        this.submitButton.disabled = true;
+    addOptions(selectID, options) {
+        let select = this.selectsDiv.querySelector(`#${selectID}`);
+        select.length = 1;
+        options.forEach((option) => {
+            select.options.add(new Option(option, option));
+        });
     }
 }

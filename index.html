@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <script  type="module" class="u-script" type="text/javascript" src="./assets/js/app.js"></script>
-    <script class="u-script" type="text/javascript" src="./assets/js/script.js"></script>
+    <script class="u-script" type="text/javascript" src="./assets/vendor/script.js"></script>
 </head>
 
 <body>
@@ -189,29 +189,16 @@
     <div class="w3-container w3-light-grey" style="padding:128px 16px" id="shop">
         <div class="w3-row-padding">
             <div class="w3-col m6">
-                <h3 class="abt">Webshop</h3>
-                <form id="form-theatre">
-                    <select class="abt" id="genreType" name="genreType">
-                        <option value="selectGenre">Select Genre</option>
-                        <option value="drama">Drama</option>
-                        <option value="opera">Opera</option>
-                    </select> <br>
-                    <select class="abt" id="playType" name="playType">
-                        <option value="selectPlay">Select Play</option>
-                        <option value="hamlet">Hamlet</option>
-                        <option value="rigoletto">Rigoletto</option>
-                    </select><br>
-                    <select class="abt" id="dateType" name="dateType">
-                        <option value="selectDate">Select Date</option>
-                        <option value="wednesday">Wednesday</option>
-                        <option value="friday">Friday</option>
-                    </select>
-                    <button type="submit" class="sub" disabled>Submit</button>
-                    <button type="reset" class="sub">Reset</button>
-                </form>
+                <h3 class="abt">Webshop</h3>     
+                <div id="div-selects" class="container-item w3-third selects">
+                    <div class="flex">
+                        <button type="reset" class="sub">Reset</button>
+                        <button type="submit" class="sub" disabled>Submit</button>
+                    </div>
+            </form>
             </div>
             <div class="w3-col m6">
-                <img id="imageTheatre" class="w3-image w3-round-large"
+                <img id="div-teathre" class="w3-image w3-round-large"
                     src="./assets/images/selectGenre-selectPlay-selectDate.png" alt="Theatre Ticket" width="700"
                     height="394">
             </div>
