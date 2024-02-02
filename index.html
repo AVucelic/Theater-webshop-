@@ -6,11 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <script  type="module" class="u-script" type="text/javascript" src="./assets/js/app.js"></script>
-    <script class="u-script" type="text/javascript" src="./assets/vendor/script.js"></script>
+    <script class="u-script" type="text/javascript" src="./assets/vendor/script.js" defer></script>
 </head>
 
 <body>
@@ -186,23 +187,27 @@
     </div>
 
     <!-- shop Section -->
-    <div class="w3-container w3-light-grey" style="padding:128px 16px" id="shop">
-        <div class="w3-row-padding">
-            <div class="w3-col m6">
-                <h3 class="abt">Webshop</h3>     
+
+    <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container" id="shop">
+        <div class="w3-content">
+            <div class="w3-twothird">
+                <h1>Webshop</h1>
+            </div>
+            <form id="form-teathre">
+                
+                <img src="./assets/images/selectGenre-selectPlay-selectDate.png" alt="Ticket"
+                id="div-teathre" class="w3-image w3-padding-bottom left">
+        
+                
                 <div id="div-selects" class="container-item w3-third selects">
                     <div class="flex">
-                        <button type="reset" class="sub">Reset</button>
-                        <button type="submit" class="sub" disabled>Submit</button>
+                        <button type="reset" class="margin-right">Reset</button>
+                        <button type="submit" disabled>Submit</button>
                     </div>
             </form>
-            </div>
-            <div class="w3-col m6">
-                <img id="div-teathre" class="w3-image w3-round-large"
-                    src="./assets/images/selectGenre-selectPlay-selectDate.png" alt="Theatre Ticket" width="700"
-                    height="394">
-            </div>
         </div>
+    </div>
+    </div>
     </div>
 
     <!-- Modal for full size images on click-->

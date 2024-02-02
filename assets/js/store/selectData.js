@@ -1,24 +1,23 @@
 export const selectData = {
-    "genereType": {
-        "drama": {
-            "playType": {
-                "Hamlet": 0,
-                "Woyzeck": 0
-            },
-            "dateType": {
-                "Wednesday": 0,
-                "Friday": 0
-            }
+    "drama": {
+        "hamlet": {
+            "monday": 0,
+            "wednesday": 0
         },
-        "opera": {
-            "playType": {
-                "Rigoletto": 0,
-                "Nikola Šubić Zrinjski": 0
-            },
-            "dateType": {
-                "Monday": 0,
-                "Sunday": 0
-            }
+        "woyzeck": {
+            "tuesday": 0,
+            "thursday": 0
+        }
+    },
+    "opera": {
+        "rigoletto": {
+            "friday": 0,
+            "sunday": 0
+        },
+        "carmen": {
+            "wednesday": 0,
+            "saturday": 0
         }
     }
+
 };

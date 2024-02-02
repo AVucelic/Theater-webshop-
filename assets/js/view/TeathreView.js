@@ -9,7 +9,7 @@
  */
 export class TeathreView {
     constructor() {
-        this.theatreForm = document.querySelector("#form-theatre");
+        this.teathreForm = document.querySelector("#form-teathre");
         this.selectsDiv = document.querySelector("#div-selects");
         this.teathreDiv = document.querySelector("#div-teathre");
         this.submitButton = document.querySelector("button[type=submit]");
@@ -24,7 +24,7 @@ export class TeathreView {
      * @returns {undefined}
      */
     renderTeathre() {
-        let imgSrc = 'assets/media/';
+        let imgSrc = 'assets/images/';
 
         this.selects.forEach((select) => {
             imgSrc += `${select.value}-`;

@@ -42,7 +42,7 @@ export class TeathreController {
             });
     
             // 4. register form submit handler
-            this.view.fencingForm.addEventListener('submit', this.handleFormSubmit);
+            this.view.teathreForm.addEventListener('submit', this.handleFormSubmit);
         }
 
         handleSelectChange = (event) => {
@@ -68,14 +68,14 @@ export class TeathreController {
             }
     
             //2.2. Update the animalDiv 
-            this.view.renderWeapon();
+            this.view.renderTeathre();
         }
     
     
         handleFormSubmit = (event) => {
             //prevent the default action of a form (prevent submitting it)
             event.preventDefault();
-            window.location.href = "order.html";
+            window.location.href = "submit.html";
         }
 }
 
