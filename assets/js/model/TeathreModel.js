@@ -68,5 +68,11 @@ export class TeathreModel {
         while (++index < properties.length) {
             this[properties[index]] = "undefined";
         }
+
+    }
+
+    store() {
+        localStorage.setItem("teathre", JSON.stringify(this));
+        console.log(localStorage().getItem("teathre"));
     }
 }

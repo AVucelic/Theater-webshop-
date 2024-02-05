@@ -20,62 +20,62 @@
  */
 export class TeathreController {
 
-        /**
-     * Creastes an object to represent the ShopController 
-     * @param {*} model - model which the controller will interact with
-     * @param {*} view - view which the controller will interact with
-     */
-        constructor(model, view) {
-            this.model = model;
-            this.view = view;
-    
-            let properties = this.model.getProperties();
-            this.view.renderSelects(properties);
-    
-            // 2. populate the first select
-            let firstSelectID = properties[0];
-            this.view.addOptions(firstSelectID, this.model.getOptions(firstSelectID));
-    
-            // 3. register one event handler for all select 'change' events
-            this.view.selects.forEach((select) => {
-                select.addEventListener('change', this.handleSelectChange);
-            });
-    
-            // 4. register form submit handler
-            this.view.teathreForm.addEventListener('submit', this.handleFormSubmit);
+    /**
+ * Creastes an object to represent the ShopController 
+ * @param {*} model - model which the controller will interact with
+ * @param {*} view - view which the controller will interact with
+ */
+    constructor(model, view) {
+        this.model = model;
+        this.view = view;
+
+        let properties = this.model.getProperties();
+        this.view.renderSelects(properties);
+
+        // 2. populate the first select
+        let firstSelectID = properties[0];
+        this.view.addOptions(firstSelectID, this.model.getOptions(firstSelectID));
+
+        // 3. register one event handler for all select 'change' events
+        this.view.selects.forEach((select) => {
+            select.addEventListener('change', this.handleSelectChange);
+        });
+
+        // 4. register form submit handler
+        this.view.teathreForm.addEventListener('submit', this.handleFormSubmit);
+    }
+
+    handleSelectChange = (event) => {
+        let select = event.target;
+
+        //1. UPDATE MODEL ------------------------------------------------------
+        //Once the current model property is update, the other model properties
+        //that are defined after the current property, they need to be reset to 
+        //"undefined".
+        this.model[select.id] = select.value;
+        this.model.resetNextProperties(select.id);
+        console.log(this.model);
+
+        //2. UPDATE VIEW (selectsDiv + animalDiv -------------------------------    
+
+        //2.1 Update the selectsDiv - reset next selects & load new options into
+        // the next select only if the current selected option is different than 
+        // '-- Select the ... --', which index is 0
+        this.view.resetNextSiblings(select.id);
+        let nextSelect = select.nextElementSibling;
+        if (select.selectedIndex > 0 && nextSelect) {
+            this.view.addOptions(nextSelect.id, this.model.getOptions(nextSelect.id));
         }
 
-        handleSelectChange = (event) => {
-            let select = event.target;
-    
-            //1. UPDATE MODEL ------------------------------------------------------
-            //Once the current model property is update, the other model properties
-            //that are defined after the current property, they need to be reset to 
-            //"undefined".
-            this.model[select.id] = select.value;
-            this.model.resetNextProperties(select.id);
-            console.log(this.model);
-    
-            //2. UPDATE VIEW (selectsDiv + animalDiv -------------------------------    
-    
-            //2.1 Update the selectsDiv - reset next selects & load new options into
-            // the next select only if the current selected option is different than 
-            // '-- Select the ... --', which index is 0
-            this.view.resetNextSiblings(select.id);
-            let nextSelect = select.nextElementSibling;
-            if (select.selectedIndex > 0 && nextSelect) {
-                this.view.addOptions(nextSelect.id, this.model.getOptions(nextSelect.id));
-            }
-    
-            //2.2. Update the animalDiv 
-            this.view.renderTeathre();
-        }
-    
-    
-        handleFormSubmit = (event) => {
-            //prevent the default action of a form (prevent submitting it)
-            event.preventDefault();
-            window.location.href = "submit.html";
-        }
+        //2.2. Update the animalDiv 
+        this.view.renderTeathre();
+    }
+
+
+    handleFormSubmit = (event) => {
+        event.preventDefault();
+        this.model.store();
+    }
+
 }
 

@@ -45,27 +45,27 @@ export class TeathreView {
         this.selects = this.selectsDiv.querySelectorAll('select');
     }
 
-        /**
-     * Resets all next selects, selects that are siblings to the one defined by
-     * this method parameter.
-     * 
-     * @param {type} selectID - the ID of the select which next siblings are going to be reset
-     */
-        resetNextSiblings(selectID) {
-            let select = this.selectsDiv.querySelector(`#${selectID}`);
-            let nextSelect = select.nextElementSibling;
-            while (nextSelect) {
-                nextSelect.length = 1;
-                nextSelect = nextSelect.nextElementSibling;
-            }
+    /**
+ * Resets all next selects, selects that are siblings to the one defined by
+ * this method parameter.
+ * 
+ * @param {type} selectID - the ID of the select which next siblings are going to be reset
+ */
+    resetNextSiblings(selectID) {
+        let select = this.selectsDiv.querySelector(`#${selectID}`);
+        let nextSelect = select.nextElementSibling;
+        while (nextSelect) {
+            nextSelect.length = 1;
+            nextSelect = nextSelect.nextElementSibling;
         }
+    }
 
-            /**
-     * Adds options to a select.
-     * 
-     * @param {String} selectID
-     * @param {Array} options - array of strings (option names)
-     */
+    /**
+* Adds options to a select.
+* 
+* @param {String} selectID
+* @param {Array} options - array of strings (option names)
+*/
     addOptions(selectID, options) {
         let select = this.selectsDiv.querySelector(`#${selectID}`);
         select.length = 1;
@@ -73,4 +73,6 @@ export class TeathreView {
             select.options.add(new Option(option, option));
         });
     }
+
+
 }
