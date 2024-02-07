@@ -73,8 +73,8 @@ export class TeathreController {
 
 
     handleFormSubmit = (event) => {
-        event.preventDefault();
         this.model.store();
+        this.model.persist();
     }
 
 }
