@@ -75,4 +75,8 @@ export class TeathreModel {
         localStorage.setItem("teathre", JSON.stringify(this));
         console.log(localStorage().getItem("teathre"));
     }
+
+    persist() {
+        localStorage.setItem('teathre', JSON.stringify(this));
+    }
 }

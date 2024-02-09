@@ -43,6 +43,7 @@ export class TeathreController {
 
         // 4. register form submit handler
         this.view.teathreForm.addEventListener('submit', this.handleFormSubmit);
+        this.view.resetButton.addEventListener("click", this.handleFormReset);
     }
 
     handleSelectChange = (event) => {
@@ -69,6 +70,12 @@ export class TeathreController {
 
         //2.2. Update the animalDiv 
         this.view.renderTeathre();
+    }
+
+    handleFormReset = () => {
+        this.model.resetNextProperties("undefined");
+        this.view.resetNextSiblings("genreType");
+        this.view.resetImage();
     }
 
 

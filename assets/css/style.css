@@ -877,3 +877,16 @@ option {
     color: #000 !important;
     background-color: #f1f1f1 !important;
 }
+
+.invalid {
+    border-color: red;
+}
+
+/* Add this to your CSS file */
+.input-error {
+    border:  1px solid red; /* Change the border color to red */
+}
+
+.input-invalid {
+    border:  2px solid red;
+}

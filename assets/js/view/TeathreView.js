@@ -74,5 +74,10 @@ export class TeathreView {
         });
     }
 
+    resetImage() {
+        this.teathreDiv.src = "assets/images/undefined-undefined-undefined.png";
+
+    }
+
 
 }
