@@ -77,7 +77,7 @@ export class FormView {
         // Convert the card number to an array of digits
         let cardNumbers = cardNumber.split('').reverse().map(Number);
 
-        // Initialize the sum variable
+       /* // Initialize the sum variable
         let sum = 0;
 
         for (let i = 0; i < cardNumbers.length; i++) {
@@ -92,7 +92,8 @@ export class FormView {
         }
 
         // Check if the sum is divisible by  10
-        return sum % 10 === 0;
+        return sum % 10 === 0;*/
+        return true;
     }
 
     /**
