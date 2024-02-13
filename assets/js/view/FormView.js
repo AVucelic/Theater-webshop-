@@ -3,6 +3,9 @@
  * The View exposes methods to interact with the view elements. 
  */
 export class FormView {
+    /**
+     * Constructor for the form view class
+     */
     constructor() {
         this.inputs = null;
         this.form = document.querySelector("#form-submit");
@@ -36,6 +39,10 @@ export class FormView {
         });
     }
 
+    /**
+     * Method that checks if the field based on input name
+     * @param {*} inputElement 
+     */
     validateField(inputElement) {
         const name = inputElement.name;
         const value = inputElement.value;
@@ -56,35 +63,43 @@ export class FormView {
     }
 
 
-
+    /**
+     * Method that validates credit card input field
+     * @param {*} cardNumber 
+     * @returns 
+     */
     validateCreditCard(cardNumber) {
         // Ensure the card number has exactly  16 digits
-        if (cardNumber.length !==  16) {
+        if (cardNumber.length !== 16) {
             return false;
         }
-    
+
         // Convert the card number to an array of digits
         let cardNumbers = cardNumber.split('').reverse().map(Number);
-    
+
         // Initialize the sum variable
-        let sum =  0;
-    
-        // Apply the Luhn algorithm
-        for (let i =  0; i < cardNumbers.length; i++) {
+        let sum = 0;
+
+        for (let i = 0; i < cardNumbers.length; i++) {
             let digit = cardNumbers[i];
-            if (i %  2 !==  0) {
-                digit *=  2;
-                if (digit >  9) {
-                    digit -=  9;
+            if (i % 2 !== 0) {
+                digit *= 2;
+                if (digit > 9) {
+                    digit -= 9;
                 }
             }
             sum += digit;
         }
-    
+
         // Check if the sum is divisible by  10
-        return sum %  10 ===  0;
+        return sum % 10 === 0;
     }
 
+    /**
+     * Method that validates if email is correctly inputed
+     * @param {*} email 
+     * @returns 
+     */
     validateEmail(email) {
         // Simple regex check for email format
         const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;

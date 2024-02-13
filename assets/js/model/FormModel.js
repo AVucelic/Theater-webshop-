@@ -19,8 +19,8 @@ export class FormModel {
     }
 
     /**
-     * Stores animal data accross browser sessions. Window.localStorage is used 
-     * to store the model as a JSON string under the key 'animal'.
+     * Stores teathre data accross browser sessions. Window.localStorage is used 
+     * to store the model as a JSON string under the key 'teathre'.
      * 
      * @returns {undefined}
      */

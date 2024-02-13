@@ -71,11 +71,23 @@ export class TeathreModel {
 
     }
 
+    /**
+     * Stores teathre data accross browser sessions. Window.localStorage is used 
+     * to store the model as a JSON string under the key 'teathre'.
+     * 
+     * @returns {undefined}
+     */
     store() {
         localStorage.setItem("teathre", JSON.stringify(this));
         console.log(localStorage().getItem("teathre"));
     }
 
+    /**
+     * Stores teathre data accross browser sessions. Window.localStorage is used 
+     * to store the model as a JSON string under the key 'teathre'.
+     * 
+     * @returns {undefined}
+     */
     persist() {
         localStorage.setItem('teathre', JSON.stringify(this));
     }

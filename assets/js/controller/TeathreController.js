@@ -72,13 +72,19 @@ export class TeathreController {
         this.view.renderTeathre();
     }
 
+    /**
+     * Handles form reset where all properties are reset
+     */
     handleFormReset = () => {
         this.model.resetNextProperties("undefined");
         this.view.resetNextSiblings("genreType");
         this.view.resetImage();
     }
 
-
+    /**
+     * Submits form and stores object to local storage
+     * @param {*} event 
+     */
     handleFormSubmit = (event) => {
         this.model.store();
         this.model.persist();

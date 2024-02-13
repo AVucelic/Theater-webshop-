@@ -35,6 +35,10 @@ export class TeathreView {
     }
 
 
+    /**
+     * Renders selects dinamically
+     * @param {*} selectIDs 
+     */
     renderSelects(selectIDs) {
         selectIDs.forEach((selectID) => {
             let select = document.createElement('select');

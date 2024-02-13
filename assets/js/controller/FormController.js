@@ -21,6 +21,10 @@ export class FormController {
 
     }
 
+    /**
+     * Handles and validates if the all fileds are inputed correctly
+     * @param {*} event 
+     */
     handleFormSubmit = (event) => {
         event.preventDefault();
 
@@ -43,6 +47,10 @@ export class FormController {
 
     }
 
+    /**
+     * Changes inputs dinamically
+     * @param {*} event 
+     */
     handleInputChange = (event) => {
         let input = event.target;
         this.model[input.name] = input.value;
