@@ -14,6 +14,10 @@ html {
     line-height: 1.8;
 }
 
+.sivo{
+    background-color: #e9e9e9;
+}
+
 
 /* Full height image header */
 .bgimg-1 {
@@ -920,3 +924,14 @@ option {
     font-weight: lighter;
     letter-spacing: 5px;
 }
+
+.abt2{
+    width: 70%;
+    margin-left: 50px;
+    text-align: justify;
+  }
+
+.leng{
+    height: 550px;
+}
+
